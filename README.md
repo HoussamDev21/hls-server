@@ -7,6 +7,8 @@
 5. enter Stream URL: `rtmp://209.97.177.6/live/<YOUR_STREAM_KEY>` (YOUR_STREAM_KEY can be anything)
 6. click `Go live`
 
+**or you can use another source like OBS studio**
+
 # How to preview streaming
 
 All streams are available on this page http://209.97.177.6:8000/admin/streams
