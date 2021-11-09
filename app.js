@@ -39,16 +39,17 @@ nms.run()
 
 app.use('/media', express.static(path.join(__dirname, 'media')))
 app.get('/archives', async (req, res) => {
-	const files = await new Promise((resolve) => {
+	let files = await new Promise((resolve) => {
 		glob("media/live/**/*.mp4", (_, files) => {
 			resolve(files)
 		})
 	})	
+	files = files.sort((a, b) => a.split('/').pop() < b.split('/').pop() ? 1 : -1)
 	res.end(`
 		<html>
 			<head></head>
 			<body style="font-family: monospace; background: #dadada">
-				${files.reverse().map(file => `
+				${files.map(file => `
 					<div style="margin-bottom: 50px">
 						<div style="margin-bottom: 10px">${file}</div>
 						<video src="/${file}" width="300px" controls></video>
