@@ -48,7 +48,7 @@ app.get('/archives', async (req, res) => {
 		<html>
 			<head></head>
 			<body style="font-family: monospace; background: #dadada">
-				${files.map(file => `
+				${files.reverse().map(file => `
 					<div style="margin-bottom: 50px">
 						<div style="margin-bottom: 10px">${file}</div>
 						<video src="/${file}" width="300px" controls></video>
